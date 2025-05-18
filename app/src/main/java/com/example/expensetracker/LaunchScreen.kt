@@ -1,16 +1,16 @@
 package com.example.expensetracker
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.fragment.findNavController
 import com.example.expensetracker.databinding.FragmentLaunchScreenBinding
 
 
+@SuppressLint("CustomSplashScreen")
 class LaunchScreen : Fragment() {
 
     private var _binding: FragmentLaunchScreenBinding? = null
