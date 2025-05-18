@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/launchScreen">
+
+    <fragment
+        android:id="@+id/launchScreen"
+        android:name="com.example.expensetracker.LaunchScreen"
+        android:label="fragment_launch_screen"
+        tools:layout="@layout/fragment_launch_screen" >
+        <action
+            android:id="@+id/action_launchScreen_to_homeScreen"
+            app:destination="@id/homeScreen" />
+        <action
+            android:id="@+id/action_launchScreen_to_signupScreen"
+            app:destination="@id/signupScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupScreen"
+        android:name="com.example.expensetracker.SignupScreen"
+        android:label="fragment_signup_screen"
+        tools:layout="@layout/fragment_signup_screen" >
+        <action
+            android:id="@+id/action_signupScreen_to_logInPage"
+            app:destination="@id/logInPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeScreen"
+        android:name="com.example.expensetracker.HomeScreen"
+        android:label="fragment_home_screen"
+        tools:layout="@layout/fragment_home_screen" >
+        <action
+            android:id="@+id/action_homeScreen_to_addExpenseScreen"
+            app:destination="@id/addExpenseScreen" />
+        <action
+            android:id="@+id/action_homeScreen_to_expenseReport"
+            app:destination="@id/expenseReport" />
+        <action
+            android:id="@+id/action_homeScreen_to_editExpenseScreen"
+            app:destination="@id/editExpenseScreen" />
+        <action
+            android:id="@+id/action_homeScreen_to_settings"
+            app:destination="@id/settings" />
+    </fragment>
+    <fragment
+        android:id="@+id/logInPage"
+        android:name="com.example.expensetracker.LogInPage"
+        android:label="fragment_log_in_page"
+        tools:layout="@layout/fragment_log_in_page" >
+        <action
+            android:id="@+id/action_logInPage_to_signupScreen"
+            app:destination="@id/signupScreen" />
+        <action
+            android:id="@+id/action_logInPage_to_homeScreen"
+            app:destination="@id/homeScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/addExpenseScreen"
+        android:name="com.example.expensetracker.AddExpenseScreen"
+        android:label="fragment_add_expense_screen"
+        tools:layout="@layout/fragment_add_expense_screen" >
+        <action
+            android:id="@+id/action_addExpenseScreen_to_homeScreen"
+            app:destination="@id/homeScreen" />
+        <action
+            android:id="@+id/action_addExpenseScreen_to_expenseReport"
+            app:destination="@id/expenseReport" />
+        <action
+            android:id="@+id/action_addExpenseScreen_to_settings"
+            app:destination="@id/settings" />
+    </fragment>
+    <fragment
+        android:id="@+id/expenseReport"
+        android:name="com.example.expensetracker.ExpenseReport"
+        android:label="fragment_expense_report"
+        tools:layout="@layout/fragment_expense_report" >
+        <action
+            android:id="@+id/action_expenseReport_to_homeScreen"
+            app:destination="@id/homeScreen" />
+        <action
+            android:id="@+id/action_expenseReport_to_addExpenseScreen"
+            app:destination="@id/addExpenseScreen" />
+        <action
+            android:id="@+id/action_expenseReport_to_settings"
+            app:destination="@id/settings" />
+    </fragment>
+    <fragment
+        android:id="@+id/editExpenseScreen"
+        android:name="com.example.expensetracker.editExpenseScreen"
+        android:label="fragment_edit_expense_screen"
+        tools:layout="@layout/fragment_edit_expense_screen">
+
+        <argument
+            android:name="transaction"
+            app:argType="com.example.expensetracker.room.Transaction" />
+    </fragment>
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.example.expensetracker.Settings"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settings_to_homeScreen"
+            app:destination="@id/homeScreen" />
+        <action
+            android:id="@+id/action_settings_to_addExpenseScreen"
+            app:destination="@id/addExpenseScreen" />
+        <action
+            android:id="@+id/action_settings_to_expenseReport"
+            app:destination="@id/expenseReport" />
+    </fragment>
+
+</navigation>

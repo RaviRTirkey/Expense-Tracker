@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Home"
+        android:icon="@drawable/home1_icon"
+        android:id="@+id/homeScreen"/>
+
+    <item android:title="Add"
+        android:icon="@drawable/add2_icon"
+        android:id="@+id/addExpenseScreen"/>
+
+    <item android:title="Report"
+        android:icon="@drawable/analysis2_icon"
+        android:id="@+id/expenseReport"/>
+
+    <item android:title="Settings"
+        android:icon="@drawable/setting_icon"
+        android:id="@+id/settings"/>
+
+</menu>

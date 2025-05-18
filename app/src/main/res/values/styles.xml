@@ -1,0 +1,25 @@
+<resources>
+
+    <!-- TextInputLayout Style -->
+    <style name="Widget.ExpenseTracker.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="boxStrokeColor">@color/theme</item>
+        <item name="hintTextColor">@color/gray</item>
+        <item name="android:textColorHint">@color/hint_color</item>
+    </style>
+
+    <!-- TextInputEditText Style -->
+    <style name="Widget.ExpenseTracker.EditText" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/hint_color</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <!-- AutoCompleteTextView Style -->
+    <style name="Widget.ExpenseTracker.AutoComplete" parent="Widget.MaterialComponents.AutoCompleteTextView.OutlinedBox">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/hint_color</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+</resources>
