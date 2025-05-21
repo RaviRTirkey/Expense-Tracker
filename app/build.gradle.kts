@@ -89,14 +89,6 @@ dependencies {
 
     implementation("com.google.firebase:firebase-auth-ktx:23.2.0")
 
-//    implementation ("com.github.User:Repo:Tag")
-
-    //William Chart
-    implementation ("com.diogobernardino:williamchart:3.10.1")
-
-
-    implementation ("com.github.blackfizz:eazegraph:1.2.2@aar")
-    implementation ("com.nineoldandroids:library:2.4.0")
 
 
 }
