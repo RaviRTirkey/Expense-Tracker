@@ -59,13 +59,13 @@ class LogInPage : Fragment() {
             }
         }
 
-        // Navigate to LogInPage when "Sign up" text is clicked
-        clickLogin()
+        // Navigate to SignupPage when "Sign up" text is clicked
+        clickSignup()
 
     }
 
-    // Navigate to LogInPage when "Sign up" text is clicked
-    private fun clickLogin() {
+    // Navigate to SignupPage when "Sign up" text is clicked
+    private fun clickSignup() {
 
         val textView = binding.needToCreateAccountText
 
@@ -73,7 +73,7 @@ class LogInPage : Fragment() {
         // Create a SpannableString for the  "Need to create an account? Sign up"
         val textSpannable = SpannableString(text)
 
-        //Define the clickable span for "Log in"
+        //Define the clickable span for "Signup"
         val clickableSpan = object : ClickableSpan() {
             override fun onClick(widget: View) {
                 findNavController().navigate(R.id.action_logInPage_to_signupScreen)
@@ -81,7 +81,7 @@ class LogInPage : Fragment() {
 
         }
 
-        // Set the clickable span for the "Log in" part of the text
+        // Set the clickable span for the "Sign up" part of the text
         textSpannable.setSpan(clickableSpan, textSpannable.indexOf("Sign up"), textSpannable.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
 
         //set the spannable string to the TextView
