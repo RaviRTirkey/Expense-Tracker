@@ -118,8 +118,8 @@ class AddExpenseScreen : Fragment() {
             return
         }
 
-        if(title.length > 12){
-            Toast.makeText(requireContext(), "Title cannot be more than 12 characters", Toast.LENGTH_SHORT).show()
+        if(title.length > 14){
+            Toast.makeText(requireContext(), "Title cannot be more than 14 characters", Toast.LENGTH_SHORT).show()
             return
         }
 

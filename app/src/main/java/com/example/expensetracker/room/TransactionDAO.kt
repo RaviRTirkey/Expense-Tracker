@@ -23,12 +23,11 @@ interface TransactionDAO
     fun getAllDetails(userId: String): LiveData<List<Transaction>>
 
     @Query("""
-    SELECT * FROM transactions 
-    WHERE userId = :userId 
-    AND (transaction_name LIKE '%' || :searchQuery || '%' OR transaction_note LIKE '%' || :searchQuery || '%')
-    ORDER BY transaction_date DESC
-""")
+        SELECT * FROM transactions 
+        WHERE userId = :userId 
+        AND (transaction_name LIKE '%' || :searchQuery || '%' OR transaction_note LIKE '%' || :searchQuery || '%')
+        ORDER BY transaction_date DESC
+    """)
     fun searchTransactions(searchQuery: String, userId: String): LiveData<List<Transaction>>
-
 
 }
