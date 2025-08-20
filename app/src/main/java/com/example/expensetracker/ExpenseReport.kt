@@ -42,6 +42,12 @@ class ExpenseReport : Fragment() {
         val factory = TransactionViewModelFactory(repository)
         transactionViewModel = ViewModelProvider(this, factory).get(TransactionViewModel::class.java)
 
+        val currentMonth = java.text.SimpleDateFormat("MMMM", java.util.Locale.getDefault()).format(java.util.Date())
+        // Set default selection before adding listener
+        val monthIndex = transactionViewModel.getMonthIndex(currentMonth)
+        if (monthIndex != -1) {
+            binding.monthSpinner.setSelection(monthIndex)
+        }
         // Spinner selection
         binding.monthSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {

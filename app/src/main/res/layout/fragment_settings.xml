@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    >
+    android:background="?android:colorBackground"
+    tools:context=".MainActivity">
 
     <!-- CardView Container -->
     <androidx.cardview.widget.CardView
@@ -15,7 +15,7 @@
         android:layout_margin="32dp"
         android:elevation="8dp"
         app:cardCornerRadius="16dp"
-        app:cardBackgroundColor="@android:color/white"
+        app:cardBackgroundColor="?attr/colorSurface"
         app:cardUseCompatPadding="true"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,6 +28,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
+            <!-- Username -->
             <TextView
                 android:id="@+id/usernameTextView"
                 android:layout_width="wrap_content"
@@ -35,9 +36,30 @@
                 android:layout_marginBottom="20dp"
                 android:gravity="center"
                 android:text="Username: JohnDoe"
-                android:textColor="#333333"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="18sp" />
 
+            <!-- Year Selection -->
+            <Spinner
+                android:id="@+id/yearSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:spinnerMode="dropdown"
+                android:padding="8dp" />
+
+            <!-- Theme Toggle -->
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/themeSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Dark Mode"
+                android:textColor="?attr/colorOnSurface"
+                android:checked="false" />
+
+
+            <!-- Logout Button -->
             <Button
                 android:id="@+id/logoutButton"
                 android:layout_width="match_parent"

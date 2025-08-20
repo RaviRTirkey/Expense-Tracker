@@ -8,6 +8,8 @@
     <color name="icon_color_selected">#636AE8</color>
     <color name="grey">#494848</color>
     <color name="hint_color">#D3D3D3</color>
+    <color name="almost_black">#1A1919</color>
+    <color name="editTextColor">#161515</color>
 
     <color name="teal_700">#FF018786</color>
     <color name="purple_500">#FF9C27B0</color>

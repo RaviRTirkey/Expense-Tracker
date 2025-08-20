@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
+    android:background="?android:colorBackground"
+    android:fitsSystemWindows="false"
     tools:context=".HomeScreen">
 
     <androidx.cardview.widget.CardView
@@ -12,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="10dp"
+        app:cardBackgroundColor="?cardBackgroundColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -19,6 +21,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="32dp"
+            android:background="?cardBackgroundColor"
             android:layout_marginBottom="10dp">
 
             <!-- Title -->
@@ -26,9 +30,9 @@
                 android:id="@+id/textViewHome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Home"
-                android:layout_marginLeft="14dp"
-                android:textColor="@color/black"
+                android:text="@string/home"
+                android:layout_marginStart="14dp"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toTopOf="parent"
@@ -42,11 +46,13 @@
                 android:layout_height="wrap_content"
                 android:spinnerMode="dropdown"
                 android:background="@drawable/rectangle_spinner_bg"
+                android:textColor="?colorOnSurface"
                 android:gravity="center"
                 android:layout_marginRight="14dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light" />
+                app:popupTheme="@style/ThemeOverlay.MaterialComponents"
+                />
 
             <!-- Search Bar -->
             <EditText
@@ -54,8 +60,9 @@
                 android:layout_width="0dp"
                 android:layout_height="45dp"
                 android:hint="Search Transactions"
-                android:background="@drawable/edit_text_box"
+                android:background="@drawable/edit_text_box2"
                 android:padding="10dp"
+                android:textColor="?colorOnSurface"
                 android:drawableStart="@android:drawable/ic_menu_search"
                 android:drawablePadding="10dp"
                 android:layout_marginTop="12dp"
@@ -75,7 +82,7 @@
         android:layout_height="0dp"
         android:paddingStart="14dp"
         android:paddingEnd="14dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -27,7 +27,7 @@ class HomeScreen : Fragment() {
 
     private val months = listOf(
         "All Months", "January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December", "All Months"
+        "July", "August", "September", "October", "November", "December"
     )
 
 
@@ -85,15 +85,10 @@ class HomeScreen : Fragment() {
     }
 
     private fun setUpMonthSpinner(){
-
-        binding.monthSpinner.adapter = ArrayAdapter(
-            requireContext(),
-            android.R.layout.simple_spinner_item,
-            months
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        }
-
+        binding.monthSpinner.adapter =
+            ArrayAdapter( requireContext(), android.R.layout.simple_spinner_item, months )
+                .also { adapter -> adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                }
         val currentMonth = java.text.SimpleDateFormat("MMMM", java.util.Locale.getDefault()).format(java.util.Date())
         val monthIndex = months.indexOfFirst { it.equals(currentMonth, ignoreCase = true) }
         if (monthIndex != -1) {
@@ -105,7 +100,6 @@ class HomeScreen : Fragment() {
                 val selectedMonth = months[position]
                 viewModel.setMonthFilter(selectedMonth)
             }
-
             override fun onNothingSelected(parent: AdapterView<*>) {}
         }
     }

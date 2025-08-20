@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="?android:colorBackground"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".editExpenseScreen">
 
@@ -12,9 +13,9 @@
         android:id="@+id/textViewEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="10dp"
         android:text="Edit Expense"
-        android:textColor="@color/black"
+        android:textColor="?attr/colorOnSurface"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,6 +58,7 @@
             android:layout_marginEnd="16dp"
             android:background="@drawable/edit_text_box"
             android:hint="Enter Title of item"
+            android:textColor="?colorOnSurface"
             android:padding="12dp" />
 
         <TextView
@@ -78,6 +80,7 @@
             android:layout_marginEnd="16dp"
             android:background="@drawable/edit_text_box"
             android:hint="Enter Amount"
+            android:textColor="?colorOnSurface"
             android:inputType="numberDecimal"
             android:padding="12dp" />
 
@@ -146,6 +149,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="sans-serif-medium"
             android:text="Note"
+            android:textColor="?colorOnSurface"
             android:textSize="18sp" />
 
         <EditText
@@ -168,6 +172,7 @@
             android:backgroundTint="@color/theme"
             android:fontFamily="sans-serif-medium"
             android:text="Submit"
+            android:textColor="@color/white"
             app:cornerRadius="8dp" />
 
         <com.google.android.material.button.MaterialButton
@@ -179,6 +184,7 @@
             android:backgroundTint="#B82222"
             android:fontFamily="sans-serif-medium"
             android:text="Delete"
+            android:textColor="@color/white"
             android:textAllCaps="false"
             app:cornerRadius="8dp" />
 

@@ -21,7 +21,10 @@ class TransactionViewModel(private val transactionRepository: TransactionReposit
     private val _selectedTransaction = MutableLiveData<Transaction>()
     val selectedTransaction: LiveData<Transaction> = _selectedTransaction
 
-    private val selectedMonth = MutableLiveData<String>("All Months")
+    private val selectedMonth = MutableLiveData<String>(
+        java.text.SimpleDateFormat("MMMM", Locale.getDefault())
+            .format(java.util.Date())
+    )
     private val _filteredTransactions = MediatorLiveData<List<Transaction>>()
     val filteredTransactions: LiveData<List<Transaction>> get() = _filteredTransactions
 
@@ -74,24 +77,24 @@ class TransactionViewModel(private val transactionRepository: TransactionReposit
         }
     }
 
-
-
-}
-
-private fun getMonthIndex(month: String): Int {
-    return when (month.lowercase(Locale.getDefault())) {
-        "january" -> 1
-        "february" -> 2
-        "march" -> 3
-        "april" -> 4
-        "may" -> 5
-        "june" -> 6
-        "july" -> 7
-        "august" -> 8
-        "september" -> 9
-        "october" -> 10
-        "november" -> 11
-        "december" -> 12
-        else -> -1
+    fun getMonthIndex(month: String): Int {
+        return when (month.lowercase(Locale.getDefault())) {
+            "january" -> 1
+            "february" -> 2
+            "march" -> 3
+            "april" -> 4
+            "may" -> 5
+            "june" -> 6
+            "july" -> 7
+            "august" -> 8
+            "september" -> 9
+            "october" -> 10
+            "november" -> 11
+            "december" -> 12
+            else -> -1
+        }
     }
+
 }
+
+
