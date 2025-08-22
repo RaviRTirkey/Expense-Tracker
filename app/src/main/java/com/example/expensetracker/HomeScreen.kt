@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,7 +24,16 @@ class HomeScreen : Fragment() {
 
     private var _binding: FragmentHomeScreenBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: TransactionViewModel
+
+    val viewModel: TransactionViewModel by activityViewModels {
+        TransactionViewModelFactory(
+            TransactionRepository(
+                TransactionDatabase.getInstance(requireContext()).transactionDAO,
+                FirebaseAuth.getInstance().currentUser?.uid ?: ""
+            )
+        )
+    }
+
 
     private val months = listOf(
         "All Months", "January", "February", "March", "April", "May", "June",
@@ -49,12 +59,13 @@ class HomeScreen : Fragment() {
             findNavController().navigate(R.id.launchScreen)
             return
         }
+//
+//        // Setting up database, repository, ViewModelFactory, and ViewModel
+//        val database = TransactionDatabase.getInstance(requireContext())
+//        val repository = TransactionRepository(database.transactionDAO,userId)
+//        val factory = TransactionViewModelFactory(repository)
+//        viewModel = ViewModelProvider(this, factory).get(TransactionViewModel::class.java)
 
-        // Setting up database, repository, ViewModelFactory, and ViewModel
-        val database = TransactionDatabase.getInstance(requireContext())
-        val repository = TransactionRepository(database.transactionDAO,userId)
-        val factory = TransactionViewModelFactory(repository)
-        viewModel = ViewModelProvider(this, factory).get(TransactionViewModel::class.java)
 
         // Setting up RecyclerView
         val transactionAdapter = TransactionAdapter()

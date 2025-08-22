@@ -25,12 +25,18 @@ class TransactionViewModel(private val transactionRepository: TransactionReposit
         java.text.SimpleDateFormat("MMMM", Locale.getDefault())
             .format(java.util.Date())
     )
+
+    private val selectedYear = MutableLiveData<Int>(
+        LocalDate.now().year
+    )
+
     private val _filteredTransactions = MediatorLiveData<List<Transaction>>()
     val filteredTransactions: LiveData<List<Transaction>> get() = _filteredTransactions
 
     init {
         _filteredTransactions.addSource(allTransaction) { filterTransactions() }
         _filteredTransactions.addSource(selectedMonth) { filterTransactions() }
+        _filteredTransactions.addSource(selectedYear) { filterTransactions() }
     }
 
     // Insert a transaction
@@ -57,20 +63,31 @@ class TransactionViewModel(private val transactionRepository: TransactionReposit
         selectedMonth.value = month
     }
 
+    fun setYearFilter(year: Int) {
+        selectedYear.value = year
+    }
+
     private fun filterTransactions() {
         val all = allTransaction.value ?: return
         val month = selectedMonth.value ?: "All Months"
+        val year = selectedYear.value ?: LocalDate.now().year
 
-        if (month == "All Months") {
-            _filteredTransactions.value = all
-            return
-        }
+//        if (month == "All Months") {
+//            _filteredTransactions.value = all
+//            return
+//        }
+//
+//        val monthIndex = getMonthIndex(month) // 1-based (January = 1)
 
-        val monthIndex = getMonthIndex(month) // 1-based (January = 1)
         _filteredTransactions.value = all.filter {
             try {
                 val date = LocalDate.parse(it.date, DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.getDefault()))
-                date.monthValue == monthIndex
+
+                val monthMatches = if (month == "All Months") true else date.monthValue == getMonthIndex(month)
+                val yearMatches = date.year == year
+
+                monthMatches && yearMatches
+
             } catch (e: Exception) {
                 false // Skip malformed dates
             }
