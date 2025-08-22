@@ -22,56 +22,132 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <!-- Username -->
-            <TextView
-                android:id="@+id/usernameTextView"
+            <!-- Header -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:id="@+id/settings_title"
+                    android:text="Settings"
+                    android:textColor="?colorOnSurface"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <!-- Welcome Section -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="@drawable/rectangle_spinner_bg"
+                android:padding="16dp"
                 android:layout_marginBottom="20dp"
-                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Welcome back,"
+                    android:textSize="16sp"
+                    android:textColor="#888888"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/usernameTextView"
+                    android:text="John Doe"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="?colorOnSurface"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <!-- Select Year -->
+            <LinearLayout
+                android:orientation="horizontal"
                 android:background="@drawable/rectangle_spinner_bg"
-                android:text="Username: JohnDoe"
-                android:textColor="#4DB6AC"
-                android:textSize="18sp" />
-
-            <!-- Year Selection -->
-            <Spinner
-                android:id="@+id/yearSpinner"
-                android:layout_width="wrap_content"
+                android:padding="16dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <ImageView
+                    android:src="@drawable/baseline_calendar_month_24"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:text="Select Year"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"/>
+
+                <Spinner
+                    android:id="@+id/yearSpinner"
+                    android:gravity="center"
+                    android:background="@drawable/rectangle_spinner_bg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <!-- Dark Mode Switch -->
+            <LinearLayout
+                android:orientation="horizontal"
                 android:background="@drawable/rectangle_spinner_bg"
-                android:layout_marginTop="12dp"
-                android:spinnerMode="dropdown"
-                android:padding="8dp" />
-
-            <!-- Theme Toggle -->
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/themeSwitch"
-                android:layout_width="wrap_content"
+                android:padding="16dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Dark Mode"
-                android:textColor="?attr/colorOnSurface"
-                android:checked="false" />
+                android:gravity="center_vertical"
+                android:layout_marginBottom="24dp">
 
+                <ImageView
+                    android:src="@drawable/baseline_dark_mode_24"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:text="Dark Mode"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"/>
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/themeSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false" />
+            </LinearLayout>
 
             <!-- Logout Button -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/logoutButton"
+            <Button
+                android:id="@+id/logout_button"
+                android:text="Logout"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:backgroundTint="#E94057"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Log Out"
-                app:cornerRadius="16dp"/>
-
+                android:layout_height="50dp"/>
 
         </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

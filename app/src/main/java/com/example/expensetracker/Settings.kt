@@ -50,7 +50,7 @@ class Settings : Fragment() {
         val user = FirebaseAuth.getInstance().currentUser
         val email = user?.email ?: "Unknown User"
         val username = trimAfterSymbol(email, '@')
-        binding.usernameTextView.text = "Username: $username"
+        binding.usernameTextView.text = username
 
 
         //Select Year
